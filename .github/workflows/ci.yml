@@ -12,6 +12,6 @@ jobs:
   build:
     name: Greeting
     runs-on: ubuntu-latest
-  steps:
-    - name: Hello World
-      run: echo "Hello World"
+    steps:
+      - name: Hello World
+        run: echo "Hello World"

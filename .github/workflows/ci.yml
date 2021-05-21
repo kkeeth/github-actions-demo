@@ -1,0 +1,17 @@
+name: dummy-workflow
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: Greeting
+    runs-on: ubuntu-latest
+  steps:
+    - name: Hello World
+      run: echo "Hello World"

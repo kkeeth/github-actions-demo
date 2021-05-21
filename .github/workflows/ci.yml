@@ -1,8 +1,8 @@
 name: dummy-workflow
 
 on:
-  schedule:
-    - cron: "0 9 * * *"
+  # schedule:
+  #   - cron: "0 9 * * *"
   push:
     branches:
       - main
@@ -13,8 +13,8 @@ jobs:
     name: Build job
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World
-        run: echo "Hello World"
+      # - name: Hello World
+      #   run: echo "Hello World"
 
       - name: Checkout Repository
         uses: actions/checkout@v2

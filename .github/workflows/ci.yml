@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
   test:
-    name: Build job
+    name: Unit Test job
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository

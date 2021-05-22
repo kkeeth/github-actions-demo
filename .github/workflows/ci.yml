@@ -1,8 +1,6 @@
-name: dummy-workflow
+name: build-and-test-workflow
 
 on:
-  # schedule:
-  #   - cron: "0 9 * * *"
   push:
     branches:
       - main
@@ -13,9 +11,6 @@ jobs:
     name: Build job
     runs-on: ubuntu-latest
     steps:
-      # - name: Hello World
-      #   run: echo "Hello World"
-
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -37,3 +32,29 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  test:
+    name: Build job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Determine npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache Npm packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Dependencies
+        run: npm i
+
+      - name: Test
+        run: npm run test

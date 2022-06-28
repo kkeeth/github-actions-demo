@@ -2,7 +2,7 @@ name: build-and-test-workflow
 
 on:
   schedule:
-    - cron: '55 13 * * *'
+    - cron: '0 0 * * 0'
 #  push:
 #    branches:
 #      - main

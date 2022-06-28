@@ -1,10 +1,12 @@
 name: build-and-test-workflow
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+  schedule:
+    - cron: '55 13 * * *'
+#  push:
+#    branches:
+#      - main
+  #pull_request:
 
 jobs:
   build:

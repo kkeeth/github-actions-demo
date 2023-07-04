@@ -26,24 +26,24 @@
   },
   "homepage": "https://github.com/kkeeth/github-actions-demo#readme",
   "devDependencies": {
-    "@riotjs/compiler": "^5.0.0",
-    "@riotjs/register": "^5.0.0",
-    "@riotjs/webpack-loader": "^5.0.0",
-    "chai": "^4.2.0",
-    "coveralls": "^3.1.0",
+    "@riotjs/compiler": "^6.4.2",
+    "@riotjs/register": "^6.0.1",
+    "@riotjs/webpack-loader": "^6.0.0",
+    "chai": "^4.3.7",
+    "coveralls": "^3.1.1",
     "esm": "^3.2.25",
-    "jsdom": "^16.2.2",
+    "jsdom": "^22.1.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^8.2.1",
+    "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "@riotjs/hot-reload": "^5.0.0",
-    "@riotjs/lazy": "^1.1.0",
-    "@riotjs/route": "^7.0.0",
-    "riot": "^5.0.0"
+    "@riotjs/hot-reload": "^6.0.1",
+    "@riotjs/lazy": "^2.0.2",
+    "@riotjs/route": "^8.0.2",
+    "riot": "^7.1.0"
   }
 }

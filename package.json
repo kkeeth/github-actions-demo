@@ -7,9 +7,9 @@
     "test": "nyc --require esm --require jsdom-global/register --require @riotjs/register mocha src/**/*.spec.js",
     "cov": "nyc report --reporter=text-lcov | coveralls",
     "cov-html": "nyc report --reporter=html",
-    "build": "webpack -c --mode production",
+    "build": "webpack --mode production",
     "prepublishOnly": "npm test",
-    "start": "webpack-dev-server --inline --watch --hot --colors -d --port 3000"
+    "start": "webpack serve --mode development --hot --port 3000"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "github",
     "actions"
   ],
-  "author": "k-kuwahara <zensin0082@gmail.com>",
+  "author": "kkeeth <zensin0082@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kkeeth/github-actions-demo/issues"
@@ -36,6 +36,7 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
+    "path-browserify": "^1.0.1",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"

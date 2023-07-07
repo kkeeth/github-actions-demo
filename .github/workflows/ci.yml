@@ -2,11 +2,11 @@ name: build-and-test-workflow
 
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
 #  push:
 #    branches:
 #      - main
-  #pull_request:
+#pull_request:
 
 jobs:
   build:
@@ -63,13 +63,15 @@ jobs:
 
   approve:
     name: Approve
+    runs-on: ubuntu-latest
     steps:
       - name: Triggered by an admin user?
         uses: sushichop/action-repository-permission@84a07d2aa5da31f9cee7dbd74216bce39ea6ae81
         with:
           required-permission: admin
           reaction-permitted: rocket
-          comment-not-permitted: \"approve me\" アクションの発火には、Admin 以上の権限が必要です。
+          comment-not-permitted:
+            \"approve me\" アクションの発火には、Admin 以上の権限が必要です。
           comment-permitted: |
             Admin 以上の権限を持つユーザーの操作によって、Pull Request を approve します。
             :warning: このアクションの乱用は、デグレーデーションが発生しやすい状況を生み出してしまいます。

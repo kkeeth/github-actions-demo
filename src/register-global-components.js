@@ -13,7 +13,7 @@ export default () => {
     const name = basename(path, ".riot");
     const component = globalComponentsContext(path);
 
-    register(name, component.default);
+    register(name, component.default || component);
 
     return {
       name,

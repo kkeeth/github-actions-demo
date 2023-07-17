@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 
@@ -7,15 +8,12 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
+    clean: true,
     chunkFilename: "chunks/[name]/index.[chunkhash].js",
     devtoolModuleFilenameTemplate: "source-webpack:///[resourcePath]",
     devtoolFallbackModuleFilenameTemplate:
       "source-webpack:///[resourcePath]?[hash]",
-  },
-  resolve: {
-    fallback: { path: require.resolve("path-browserify") },
   },
   externals: {
     url: "url",
@@ -29,18 +27,22 @@ module.exports = {
     },
   },
   optimization: {
+    runtimeChunk: {
+      name: "runtime",
+    },
     splitChunks: {
       chunks: "async",
-      minSize: 30000,
-      maxSize: 0,
+      minSize: 20000,
+      minRemainingSize: 0,
       minChunks: 1,
-      maxAsyncRequests: 6,
-      maxInitialRequests: 4,
-      automaticNameDelimiter: "~",
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      enforceSizeThreshold: 50000,
       cacheGroups: {
         defaultVendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10,
+          reuseExistingChunk: true,
         },
         default: {
           minChunks: 2,
@@ -66,4 +68,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "src/index.html",
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };
